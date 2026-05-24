@@ -1,0 +1,319 @@
+2026-05-14 19:30:31,981 - mcp.server.lowlevel.server - DEBUG - Initializing server 'SharePoint MCP'
+2026-05-14 19:30:31,981 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListToolsRequest
+2026-05-14 19:30:31,981 - mcp.server.lowlevel.server - DEBUG - Registering handler for CallToolRequest
+2026-05-14 19:30:31,981 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourcesRequest
+2026-05-14 19:30:31,982 - mcp.server.lowlevel.server - DEBUG - Registering handler for ReadResourceRequest
+2026-05-14 19:30:31,982 - mcp.server.lowlevel.server - DEBUG - Registering handler for PromptListRequest
+2026-05-14 19:30:31,982 - mcp.server.lowlevel.server - DEBUG - Registering handler for GetPromptRequest
+2026-05-14 19:30:31,982 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourceTemplatesRequest
+2026-05-14 19:30:32,001 - sharepoint_mcp - INFO - Starting SharePoint MCP server (transport=streamable-http)...
+2026-05-14 19:30:32,001 - sharepoint_mcp - INFO - HTTP server binding to 127.0.0.1:8765
+2026-05-14 19:30:32,005 - asyncio - DEBUG - Using proactor: IocpProactor
+INFO:     Started server process [46704]
+INFO:     Waiting for application startup.
+2026-05-14 19:30:32,025 - mcp.server.streamable_http_manager - INFO - StreamableHTTP session manager started
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8765 (Press CTRL+C to quit)
+2026-05-14 19:32:17,471 - mcp.server.streamable_http_manager - DEBUG - Creating new transport
+2026-05-14 19:32:17,472 - mcp.server.streamable_http_manager - INFO - Created new transport with session ID: 528d402747614accbd08241b5f142319
+2026-05-14 19:32:17,474 - sharepoint_mcp - INFO - Initializing SharePoint connection...
+2026-05-14 19:32:17,474 - sharepoint_mcp - DEBUG - Attempting to get authentication context...
+2026-05-14 19:32:17,474 - urllib3.util.retry - DEBUG - Converted retries value: 1 -> Retry(total=1, connect=None, read=None, redirect=None, status=None)
+2026-05-14 19:32:17,477 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): login.microsoftonline.com:443
+2026-05-14 19:32:17,804 - urllib3.connectionpool - DEBUG - https://login.microsoftonline.com:443 "GET /8ddc7641-df9b-4303-b039-c37e056520ad/v2.0/.well-known/openid-configuration HTTP/1.1" 200 1964
+2026-05-14 19:32:17,805 - msal.application - DEBUG - Broker enabled? None
+2026-05-14 19:32:17,806 - msal.application - DEBUG - Region to be used: None
+2026-05-14 19:32:17,806 - sharepoint_auth - INFO - Acquiring new token via client credentials flow
+2026-05-14 19:32:17,806 - msal.telemetry - DEBUG - Generate or reuse correlation_id: 11d70880-e51f-4d0d-903f-f0d852a783cd
+2026-05-14 19:32:17,939 - urllib3.connectionpool - DEBUG - https://login.microsoftonline.com:443 "POST /8ddc7641-df9b-4303-b039-c37e056520ad/oauth2/v2.0/token HTTP/1.1" 200 2276
+2026-05-14 19:32:17,941 - msal.token_cache - DEBUG - event={
+    "client_id": "545d1d05-f7f9-4812-8f41-e1483b3f03fb",
+    "data": {
+        "claims": null,
+        "scope": [
+            "https://graph.microsoft.com/.default"
+        ]
+    },
+    "environment": "login.microsoftonline.com",
+    "grant_type": "client_credentials",
+    "params": null,
+    "response": {
+        "access_token": "********",
+        "expires_in": 3599,
+        "ext_expires_in": 3599,
+        "token_type": "Bearer"
+    },
+    "scope": [
+        "https://graph.microsoft.com/.default"
+    ],
+    "token_endpoint": "https://login.microsoftonline.com/8ddc7641-df9b-4303-b039-c37e056520ad/oauth2/v2.0/token"
+}
+2026-05-14 19:32:17,941 - sharepoint_auth - INFO - Token acquired successfully: eyJ0eXAiOi...FL_AcXhVKw
+2026-05-14 19:32:17,942 - sharepoint_auth - INFO - Authentication successful, token expires at 2026-05-14 20:32:16.942206
+2026-05-14 19:32:17,942 - sharepoint_auth - INFO - Token information:
+2026-05-14 19:32:17,942 - sharepoint_auth - INFO - Token expires: 1778805139
+2026-05-14 19:32:17,942 - sharepoint_auth - INFO - Token issued: 1778801239
+2026-05-14 19:32:17,942 - sharepoint_auth - INFO - Token issuer: https://sts.windows.net/8ddc7641-df9b-4303-b039-c37e056520ad/
+2026-05-14 19:32:17,942 - sharepoint_auth - INFO - Application permissions (roles):
+2026-05-14 19:32:17,943 - sharepoint_auth - INFO -   - Sites.Selected
+2026-05-14 19:32:17,943 - sharepoint_auth - INFO -   - Sites.Read.All
+2026-05-14 19:32:17,943 - sharepoint_auth - INFO -   - Sites.ReadWrite.All
+2026-05-14 19:32:17,943 - sharepoint_auth - INFO -   - Sites.Manage.All
+2026-05-14 19:32:17,943 - sharepoint_auth - INFO -   - Sites.Archive.All
+2026-05-14 19:32:17,943 - sharepoint_auth - INFO -   - Sites.Create.All
+2026-05-14 19:32:17,944 - sharepoint_auth - INFO -   - Sites.FullControl.All
+2026-05-14 19:32:17,944 - sharepoint_auth - INFO - Write permissions found:
+2026-05-14 19:32:17,944 - sharepoint_auth - INFO -   - Sites.ReadWrite.All
+2026-05-14 19:32:17,944 - sharepoint_auth - INFO -   - Sites.Manage.All
+2026-05-14 19:32:17,944 - sharepoint_auth - INFO - Testing connection with acquired token...
+2026-05-14 19:32:17,945 - sharepoint_auth - DEBUG - Testing connection to: https://graph.microsoft.com/v1.0/sites/detroitmemorialpark.sharepoint.com:/sites/DMP-Corporate
+2026-05-14 19:32:17,945 - sharepoint_auth - DEBUG - Using token (preview): eyJ0eXAiOi...FL_AcXhVKw
+2026-05-14 19:32:17,946 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): graph.microsoft.com:443
+2026-05-14 19:32:18,349 - urllib3.connectionpool - DEBUG - https://graph.microsoft.com:443 "GET /v1.0/sites/detroitmemorialpark.sharepoint.com:/sites/DMP-Corporate HTTP/1.1" 200 None
+2026-05-14 19:32:18,350 - sharepoint_auth - INFO - Connection test successful: 200
+2026-05-14 19:32:18,351 - sharepoint_auth - INFO - Testing write permissions...
+2026-05-14 19:32:18,352 - sharepoint_auth - DEBUG - Testing write permissions...
+2026-05-14 19:32:18,352 - sharepoint_auth - DEBUG - Using token (preview): eyJ0eXAiOi...FL_AcXhVKw
+2026-05-14 19:32:18,353 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): graph.microsoft.com:443
+2026-05-14 19:32:18,756 - urllib3.connectionpool - DEBUG - https://graph.microsoft.com:443 "GET /v1.0/sites/detroitmemorialpark.sharepoint.com:/sites/DMP-Corporate HTTP/1.1" 200 None
+2026-05-14 19:32:18,765 - sharepoint_auth - DEBUG - Using token (preview): eyJ0eXAiOi...FL_AcXhVKw
+2026-05-14 19:32:18,767 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): graph.microsoft.com:443
+2026-05-14 19:32:19,311 - urllib3.connectionpool - DEBUG - https://graph.microsoft.com:443 "GET /v1.0/sites/detroitmemorialpark.sharepoint.com,a99a089a-f29d-4363-ae54-c13870879b14,a3a309c1-2772-4a6b-9017-363ebb0f3c50/drives HTTP/1.1" 200 None
+2026-05-14 19:32:19,320 - sharepoint_auth - DEBUG - Using token (preview): eyJ0eXAiOi...FL_AcXhVKw
+2026-05-14 19:32:19,321 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): graph.microsoft.com:443
+2026-05-14 19:32:19,974 - urllib3.connectionpool - DEBUG - https://graph.microsoft.com:443 "POST /v1.0/sites/detroitmemorialpark.sharepoint.com,a99a089a-f29d-4363-ae54-c13870879b14,a3a309c1-2772-4a6b-9017-363ebb0f3c50/drives/b!mgiaqZ3yY0OuVME4cIebFMEJo6NyJ2tKkBc2PrsPPFDShA3dD3TWQ5lU0bPEQKms/root/children HTTP/1.1" 201 None
+2026-05-14 19:32:19,983 - sharepoint_auth - INFO - Write permission test successful: 201
+2026-05-14 19:32:19,983 - sharepoint_auth - DEBUG - Using token (preview): eyJ0eXAiOi...FL_AcXhVKw
+2026-05-14 19:32:19,983 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): graph.microsoft.com:443
+2026-05-14 19:32:20,577 - urllib3.connectionpool - DEBUG - https://graph.microsoft.com:443 "DELETE /v1.0/sites/detroitmemorialpark.sharepoint.com,a99a089a-f29d-4363-ae54-c13870879b14,a3a309c1-2772-4a6b-9017-363ebb0f3c50/drives/b!mgiaqZ3yY0OuVME4cIebFMEJo6NyJ2tKkBc2PrsPPFDShA3dD3TWQ5lU0bPEQKms/items/014VRK552BPZL5JQMGIJF2Z4XQ7REUGPOR HTTP/1.1" 204 0
+2026-05-14 19:32:20,586 - sharepoint_auth - INFO - Test folder deleted successfully
+2026-05-14 19:32:20,587 - sharepoint_auth - INFO - Write permission test successful. Token has write permissions.
+2026-05-14 19:32:20,587 - sharepoint_mcp - INFO - Authentication successful. Token expiry: 2026-05-14 20:32:16.942206
+2026-05-14 19:32:41,880 - mcp.server.streamable_http_manager - DEBUG - Creating new transport
+2026-05-14 19:32:41,888 - mcp.server.streamable_http_manager - INFO - Created new transport with session ID: a429d81497814b17ac920831197e1dd4
+2026-05-14 19:32:41,889 - sharepoint_mcp - INFO - Initializing SharePoint connection...
+2026-05-14 19:32:41,889 - sharepoint_mcp - DEBUG - Attempting to get authentication context...
+2026-05-14 19:32:41,890 - urllib3.util.retry - DEBUG - Converted retries value: 1 -> Retry(total=1, connect=None, read=None, redirect=None, status=None)
+2026-05-14 19:32:41,890 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): login.microsoftonline.com:443
+2026-05-14 19:32:42,160 - urllib3.connectionpool - DEBUG - https://login.microsoftonline.com:443 "GET /8ddc7641-df9b-4303-b039-c37e056520ad/v2.0/.well-known/openid-configuration HTTP/1.1" 200 1964
+2026-05-14 19:32:42,169 - msal.application - DEBUG - Broker enabled? None
+2026-05-14 19:32:42,169 - msal.application - DEBUG - Region to be used: None
+2026-05-14 19:32:42,170 - sharepoint_auth - INFO - Acquiring new token via client credentials flow
+2026-05-14 19:32:42,170 - msal.telemetry - DEBUG - Generate or reuse correlation_id: 2e6244f6-5ecb-4f6b-9311-1ea62d788286
+2026-05-14 19:32:42,288 - urllib3.connectionpool - DEBUG - https://login.microsoftonline.com:443 "POST /8ddc7641-df9b-4303-b039-c37e056520ad/oauth2/v2.0/token HTTP/1.1" 200 2276
+2026-05-14 19:32:42,289 - msal.token_cache - DEBUG - event={
+    "client_id": "545d1d05-f7f9-4812-8f41-e1483b3f03fb",
+    "data": {
+        "claims": null,
+        "scope": [
+            "https://graph.microsoft.com/.default"
+        ]
+    },
+    "environment": "login.microsoftonline.com",
+    "grant_type": "client_credentials",
+    "params": null,
+    "response": {
+        "access_token": "********",
+        "expires_in": 3599,
+        "ext_expires_in": 3599,
+        "token_type": "Bearer"
+    },
+    "scope": [
+        "https://graph.microsoft.com/.default"
+    ],
+    "token_endpoint": "https://login.microsoftonline.com/8ddc7641-df9b-4303-b039-c37e056520ad/oauth2/v2.0/token"
+}
+2026-05-14 19:32:42,289 - sharepoint_auth - INFO - Token acquired successfully: eyJ0eXAiOi...kzHx_tuDRg
+2026-05-14 19:32:42,290 - sharepoint_auth - INFO - Authentication successful, token expires at 2026-05-14 20:32:41.290354
+2026-05-14 19:32:42,290 - sharepoint_auth - INFO - Token information:
+2026-05-14 19:32:42,290 - sharepoint_auth - INFO - Token expires: 1778805163
+2026-05-14 19:32:42,290 - sharepoint_auth - INFO - Token issued: 1778801263
+2026-05-14 19:32:42,290 - sharepoint_auth - INFO - Token issuer: https://sts.windows.net/8ddc7641-df9b-4303-b039-c37e056520ad/
+2026-05-14 19:32:42,290 - sharepoint_auth - INFO - Application permissions (roles):
+2026-05-14 19:32:42,290 - sharepoint_auth - INFO -   - Sites.Selected
+2026-05-14 19:32:42,290 - sharepoint_auth - INFO -   - Sites.Read.All
+2026-05-14 19:32:42,291 - sharepoint_auth - INFO -   - Sites.ReadWrite.All
+2026-05-14 19:32:42,291 - sharepoint_auth - INFO -   - Sites.Manage.All
+2026-05-14 19:32:42,291 - sharepoint_auth - INFO -   - Sites.Archive.All
+2026-05-14 19:32:42,291 - sharepoint_auth - INFO -   - Sites.Create.All
+2026-05-14 19:32:42,291 - sharepoint_auth - INFO -   - Sites.FullControl.All
+2026-05-14 19:32:42,291 - sharepoint_auth - INFO - Write permissions found:
+2026-05-14 19:32:42,291 - sharepoint_auth - INFO -   - Sites.ReadWrite.All
+2026-05-14 19:32:42,291 - sharepoint_auth - INFO -   - Sites.Manage.All
+2026-05-14 19:32:42,291 - sharepoint_auth - INFO - Testing connection with acquired token...
+2026-05-14 19:32:42,292 - sharepoint_auth - DEBUG - Testing connection to: https://graph.microsoft.com/v1.0/sites/detroitmemorialpark.sharepoint.com:/sites/DMP-Corporate
+2026-05-14 19:32:42,292 - sharepoint_auth - DEBUG - Using token (preview): eyJ0eXAiOi...kzHx_tuDRg
+2026-05-14 19:32:42,292 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): graph.microsoft.com:443
+2026-05-14 19:32:42,597 - urllib3.connectionpool - DEBUG - https://graph.microsoft.com:443 "GET /v1.0/sites/detroitmemorialpark.sharepoint.com:/sites/DMP-Corporate HTTP/1.1" 200 None
+2026-05-14 19:32:42,605 - sharepoint_auth - INFO - Connection test successful: 200
+2026-05-14 19:32:42,606 - sharepoint_auth - INFO - Testing write permissions...
+2026-05-14 19:32:42,606 - sharepoint_auth - DEBUG - Testing write permissions...
+2026-05-14 19:32:42,606 - sharepoint_auth - DEBUG - Using token (preview): eyJ0eXAiOi...kzHx_tuDRg
+2026-05-14 19:32:42,607 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): graph.microsoft.com:443
+2026-05-14 19:32:43,011 - urllib3.connectionpool - DEBUG - https://graph.microsoft.com:443 "GET /v1.0/sites/detroitmemorialpark.sharepoint.com:/sites/DMP-Corporate HTTP/1.1" 200 None
+2026-05-14 19:32:43,019 - sharepoint_auth - DEBUG - Using token (preview): eyJ0eXAiOi...kzHx_tuDRg
+2026-05-14 19:32:43,020 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): graph.microsoft.com:443
+2026-05-14 19:32:43,417 - urllib3.connectionpool - DEBUG - https://graph.microsoft.com:443 "GET /v1.0/sites/detroitmemorialpark.sharepoint.com,a99a089a-f29d-4363-ae54-c13870879b14,a3a309c1-2772-4a6b-9017-363ebb0f3c50/drives HTTP/1.1" 200 None
+2026-05-14 19:32:43,426 - sharepoint_auth - DEBUG - Using token (preview): eyJ0eXAiOi...kzHx_tuDRg
+2026-05-14 19:32:43,427 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): graph.microsoft.com:443
+2026-05-14 19:32:43,911 - urllib3.connectionpool - DEBUG - https://graph.microsoft.com:443 "POST /v1.0/sites/detroitmemorialpark.sharepoint.com,a99a089a-f29d-4363-ae54-c13870879b14,a3a309c1-2772-4a6b-9017-363ebb0f3c50/drives/b!mgiaqZ3yY0OuVME4cIebFMEJo6NyJ2tKkBc2PrsPPFDShA3dD3TWQ5lU0bPEQKms/root/children HTTP/1.1" 201 None
+2026-05-14 19:32:43,921 - sharepoint_auth - INFO - Write permission test successful: 201
+2026-05-14 19:32:43,921 - sharepoint_auth - DEBUG - Using token (preview): eyJ0eXAiOi...kzHx_tuDRg
+2026-05-14 19:32:43,922 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): graph.microsoft.com:443
+2026-05-14 19:32:44,397 - urllib3.connectionpool - DEBUG - https://graph.microsoft.com:443 "DELETE /v1.0/sites/detroitmemorialpark.sharepoint.com,a99a089a-f29d-4363-ae54-c13870879b14,a3a309c1-2772-4a6b-9017-363ebb0f3c50/drives/b!mgiaqZ3yY0OuVME4cIebFMEJo6NyJ2tKkBc2PrsPPFDShA3dD3TWQ5lU0bPEQKms/items/014VRK553HZGZXORKAOBHZCBNWS3OAYZEZ HTTP/1.1" 204 0
+2026-05-14 19:32:44,405 - sharepoint_auth - INFO - Test folder deleted successfully
+2026-05-14 19:32:44,406 - sharepoint_auth - INFO - Write permission test successful. Token has write permissions.
+2026-05-14 19:32:44,407 - sharepoint_mcp - INFO - Authentication successful. Token expiry: 2026-05-14 20:32:41.290354
+2026-05-14 19:32:44,409 - mcp.server.streamable_http - DEBUG - Closing SSE writer
+2026-05-14 19:32:44,409 - sse_starlette.sse - DEBUG - chunk: b'event: message\r\ndata: {"jsonrpc":"2.0","id":1,"result":{"protocolVersion":"2024-11-05","capabilities":{"experimental":{},"prompts":{"listChanged":false},"resources":{"subscribe":false,"listChanged":false},"tools":{"listChanged":false}},"serverInfo":{"name":"SharePoint MCP","version":"1.27.1"}}}\r\n\r\n'
+2026-05-14 19:32:44,410 - sse_starlette.sse - DEBUG - Got event: http.disconnect. Stop streaming.
+2026-05-14 19:32:44,452 - mcp.server.streamable_http_manager - DEBUG - Creating new transport
+2026-05-14 19:32:44,453 - mcp.server.streamable_http_manager - INFO - Created new transport with session ID: 2317ae7161704ddfa0049a41a99e5958
+2026-05-14 19:32:44,455 - sharepoint_mcp - INFO - Initializing SharePoint connection...
+2026-05-14 19:32:44,455 - sharepoint_mcp - DEBUG - Attempting to get authentication context...
+2026-05-14 19:32:44,455 - urllib3.util.retry - DEBUG - Converted retries value: 1 -> Retry(total=1, connect=None, read=None, redirect=None, status=None)
+2026-05-14 19:32:44,456 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): login.microsoftonline.com:443
+2026-05-14 19:32:44,692 - urllib3.connectionpool - DEBUG - https://login.microsoftonline.com:443 "GET /8ddc7641-df9b-4303-b039-c37e056520ad/v2.0/.well-known/openid-configuration HTTP/1.1" 200 1964
+2026-05-14 19:32:44,700 - msal.application - DEBUG - Broker enabled? None
+2026-05-14 19:32:44,701 - msal.application - DEBUG - Region to be used: None
+2026-05-14 19:32:44,701 - sharepoint_auth - INFO - Acquiring new token via client credentials flow
+2026-05-14 19:32:44,702 - msal.telemetry - DEBUG - Generate or reuse correlation_id: d0ce6093-35b3-459a-9a93-65e3aa058d9d
+2026-05-14 19:32:44,825 - urllib3.connectionpool - DEBUG - https://login.microsoftonline.com:443 "POST /8ddc7641-df9b-4303-b039-c37e056520ad/oauth2/v2.0/token HTTP/1.1" 200 2279
+2026-05-14 19:32:44,826 - msal.token_cache - DEBUG - event={
+    "client_id": "545d1d05-f7f9-4812-8f41-e1483b3f03fb",
+    "data": {
+        "claims": null,
+        "scope": [
+            "https://graph.microsoft.com/.default"
+        ]
+    },
+    "environment": "login.microsoftonline.com",
+    "grant_type": "client_credentials",
+    "params": null,
+    "response": {
+        "access_token": "********",
+        "expires_in": 3599,
+        "ext_expires_in": 3599,
+        "token_type": "Bearer"
+    },
+    "scope": [
+        "https://graph.microsoft.com/.default"
+    ],
+    "token_endpoint": "https://login.microsoftonline.com/8ddc7641-df9b-4303-b039-c37e056520ad/oauth2/v2.0/token"
+}
+2026-05-14 19:32:44,827 - sharepoint_auth - INFO - Token acquired successfully: eyJ0eXAiOi...BXrBooreuw
+2026-05-14 19:32:44,827 - sharepoint_auth - INFO - Authentication successful, token expires at 2026-05-14 20:32:43.827682
+2026-05-14 19:32:44,827 - sharepoint_auth - INFO - Token information:
+2026-05-14 19:32:44,827 - sharepoint_auth - INFO - Token expires: 1778805166
+2026-05-14 19:32:44,828 - sharepoint_auth - INFO - Token issued: 1778801266
+2026-05-14 19:32:44,828 - sharepoint_auth - INFO - Token issuer: https://sts.windows.net/8ddc7641-df9b-4303-b039-c37e056520ad/
+2026-05-14 19:32:44,828 - sharepoint_auth - INFO - Application permissions (roles):
+2026-05-14 19:32:44,828 - sharepoint_auth - INFO -   - Sites.Selected
+2026-05-14 19:32:44,828 - sharepoint_auth - INFO -   - Sites.Read.All
+2026-05-14 19:32:44,828 - sharepoint_auth - INFO -   - Sites.ReadWrite.All
+2026-05-14 19:32:44,828 - sharepoint_auth - INFO -   - Sites.Manage.All
+2026-05-14 19:32:44,828 - sharepoint_auth - INFO -   - Sites.Archive.All
+2026-05-14 19:32:44,828 - sharepoint_auth - INFO -   - Sites.Create.All
+2026-05-14 19:32:44,828 - sharepoint_auth - INFO -   - Sites.FullControl.All
+2026-05-14 19:32:44,829 - sharepoint_auth - INFO - Write permissions found:
+2026-05-14 19:32:44,829 - sharepoint_auth - INFO -   - Sites.ReadWrite.All
+2026-05-14 19:32:44,829 - sharepoint_auth - INFO -   - Sites.Manage.All
+2026-05-14 19:32:44,829 - sharepoint_auth - INFO - Testing connection with acquired token...
+2026-05-14 19:32:44,829 - sharepoint_auth - DEBUG - Testing connection to: https://graph.microsoft.com/v1.0/sites/detroitmemorialpark.sharepoint.com:/sites/DMP-Corporate
+2026-05-14 19:32:44,830 - sharepoint_auth - DEBUG - Using token (preview): eyJ0eXAiOi...BXrBooreuw
+2026-05-14 19:32:44,830 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): graph.microsoft.com:443
+2026-05-14 19:32:45,243 - urllib3.connectionpool - DEBUG - https://graph.microsoft.com:443 "GET /v1.0/sites/detroitmemorialpark.sharepoint.com:/sites/DMP-Corporate HTTP/1.1" 200 None
+2026-05-14 19:32:45,252 - sharepoint_auth - INFO - Connection test successful: 200
+2026-05-14 19:32:45,253 - sharepoint_auth - INFO - Testing write permissions...
+2026-05-14 19:32:45,253 - sharepoint_auth - DEBUG - Testing write permissions...
+2026-05-14 19:32:45,254 - sharepoint_auth - DEBUG - Using token (preview): eyJ0eXAiOi...BXrBooreuw
+2026-05-14 19:32:45,254 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): graph.microsoft.com:443
+2026-05-14 19:32:45,590 - urllib3.connectionpool - DEBUG - https://graph.microsoft.com:443 "GET /v1.0/sites/detroitmemorialpark.sharepoint.com:/sites/DMP-Corporate HTTP/1.1" 200 None
+2026-05-14 19:32:45,598 - sharepoint_auth - DEBUG - Using token (preview): eyJ0eXAiOi...BXrBooreuw
+2026-05-14 19:32:45,599 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): graph.microsoft.com:443
+2026-05-14 19:32:46,024 - urllib3.connectionpool - DEBUG - https://graph.microsoft.com:443 "GET /v1.0/sites/detroitmemorialpark.sharepoint.com,a99a089a-f29d-4363-ae54-c13870879b14,a3a309c1-2772-4a6b-9017-363ebb0f3c50/drives HTTP/1.1" 200 None
+2026-05-14 19:32:46,034 - sharepoint_auth - DEBUG - Using token (preview): eyJ0eXAiOi...BXrBooreuw
+2026-05-14 19:32:46,034 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): graph.microsoft.com:443
+2026-05-14 19:32:46,678 - urllib3.connectionpool - DEBUG - https://graph.microsoft.com:443 "POST /v1.0/sites/detroitmemorialpark.sharepoint.com,a99a089a-f29d-4363-ae54-c13870879b14,a3a309c1-2772-4a6b-9017-363ebb0f3c50/drives/b!mgiaqZ3yY0OuVME4cIebFMEJo6NyJ2tKkBc2PrsPPFDShA3dD3TWQ5lU0bPEQKms/root/children HTTP/1.1" 201 None
+2026-05-14 19:32:46,687 - sharepoint_auth - INFO - Write permission test successful: 201
+2026-05-14 19:32:46,687 - sharepoint_auth - DEBUG - Using token (preview): eyJ0eXAiOi...BXrBooreuw
+2026-05-14 19:32:46,688 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): graph.microsoft.com:443
+2026-05-14 19:32:47,234 - urllib3.connectionpool - DEBUG - https://graph.microsoft.com:443 "DELETE /v1.0/sites/detroitmemorialpark.sharepoint.com,a99a089a-f29d-4363-ae54-c13870879b14,a3a309c1-2772-4a6b-9017-363ebb0f3c50/drives/b!mgiaqZ3yY0OuVME4cIebFMEJo6NyJ2tKkBc2PrsPPFDShA3dD3TWQ5lU0bPEQKms/items/014VRK55YLHHVWVLMCGVBI3W27DVZUHABM HTTP/1.1" 204 0
+2026-05-14 19:32:47,242 - sharepoint_auth - INFO - Test folder deleted successfully
+2026-05-14 19:32:47,243 - sharepoint_auth - INFO - Write permission test successful. Token has write permissions.
+2026-05-14 19:32:47,243 - sharepoint_mcp - INFO - Authentication successful. Token expiry: 2026-05-14 20:32:43.827682
+2026-05-14 19:32:47,255 - mcp.server.streamable_http_manager - DEBUG - Creating new transport
+2026-05-14 19:32:47,255 - mcp.server.streamable_http_manager - INFO - Created new transport with session ID: 67b783d4ca824b9c88eead4cdfc51a87
+2026-05-14 19:32:47,257 - sharepoint_mcp - INFO - Initializing SharePoint connection...
+2026-05-14 19:32:47,257 - sharepoint_mcp - DEBUG - Attempting to get authentication context...
+2026-05-14 19:32:47,257 - urllib3.util.retry - DEBUG - Converted retries value: 1 -> Retry(total=1, connect=None, read=None, redirect=None, status=None)
+2026-05-14 19:32:47,258 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): login.microsoftonline.com:443
+2026-05-14 19:32:47,540 - urllib3.connectionpool - DEBUG - https://login.microsoftonline.com:443 "GET /8ddc7641-df9b-4303-b039-c37e056520ad/v2.0/.well-known/openid-configuration HTTP/1.1" 200 1964
+2026-05-14 19:32:47,541 - msal.application - DEBUG - Broker enabled? None
+2026-05-14 19:32:47,541 - msal.application - DEBUG - Region to be used: None
+2026-05-14 19:32:47,542 - sharepoint_auth - INFO - Acquiring new token via client credentials flow
+2026-05-14 19:32:47,542 - msal.telemetry - DEBUG - Generate or reuse correlation_id: b042cfd0-9497-40c9-affb-0b8196bb492a
+2026-05-14 19:32:47,663 - urllib3.connectionpool - DEBUG - https://login.microsoftonline.com:443 "POST /8ddc7641-df9b-4303-b039-c37e056520ad/oauth2/v2.0/token HTTP/1.1" 200 2272
+2026-05-14 19:32:47,664 - msal.token_cache - DEBUG - event={
+    "client_id": "545d1d05-f7f9-4812-8f41-e1483b3f03fb",
+    "data": {
+        "claims": null,
+        "scope": [
+            "https://graph.microsoft.com/.default"
+        ]
+    },
+    "environment": "login.microsoftonline.com",
+    "grant_type": "client_credentials",
+    "params": null,
+    "response": {
+        "access_token": "********",
+        "expires_in": 3599,
+        "ext_expires_in": 3599,
+        "token_type": "Bearer"
+    },
+    "scope": [
+        "https://graph.microsoft.com/.default"
+    ],
+    "token_endpoint": "https://login.microsoftonline.com/8ddc7641-df9b-4303-b039-c37e056520ad/oauth2/v2.0/token"
+}
+2026-05-14 19:32:47,664 - sharepoint_auth - INFO - Token acquired successfully: eyJ0eXAiOi...-aoUFGexQw
+2026-05-14 19:32:47,664 - sharepoint_auth - INFO - Authentication successful, token expires at 2026-05-14 20:32:46.664506
+2026-05-14 19:32:47,664 - sharepoint_auth - INFO - Token information:
+2026-05-14 19:32:47,665 - sharepoint_auth - INFO - Token expires: 1778805169
+2026-05-14 19:32:47,665 - sharepoint_auth - INFO - Token issued: 1778801269
+2026-05-14 19:32:47,665 - sharepoint_auth - INFO - Token issuer: https://sts.windows.net/8ddc7641-df9b-4303-b039-c37e056520ad/
+2026-05-14 19:32:47,665 - sharepoint_auth - INFO - Application permissions (roles):
+2026-05-14 19:32:47,665 - sharepoint_auth - INFO -   - Sites.Selected
+2026-05-14 19:32:47,666 - sharepoint_auth - INFO -   - Sites.Read.All
+2026-05-14 19:32:47,666 - sharepoint_auth - INFO -   - Sites.ReadWrite.All
+2026-05-14 19:32:47,666 - sharepoint_auth - INFO -   - Sites.Manage.All
+2026-05-14 19:32:47,666 - sharepoint_auth - INFO -   - Sites.Archive.All
+2026-05-14 19:32:47,666 - sharepoint_auth - INFO -   - Sites.Create.All
+2026-05-14 19:32:47,666 - sharepoint_auth - INFO -   - Sites.FullControl.All
+2026-05-14 19:32:47,667 - sharepoint_auth - INFO - Write permissions found:
+2026-05-14 19:32:47,667 - sharepoint_auth - INFO -   - Sites.ReadWrite.All
+2026-05-14 19:32:47,667 - sharepoint_auth - INFO -   - Sites.Manage.All
+2026-05-14 19:32:47,667 - sharepoint_auth - INFO - Testing connection with acquired token...
+2026-05-14 19:32:47,667 - sharepoint_auth - DEBUG - Testing connection to: https://graph.microsoft.com/v1.0/sites/detroitmemorialpark.sharepoint.com:/sites/DMP-Corporate
+2026-05-14 19:32:47,667 - sharepoint_auth - DEBUG - Using token (preview): eyJ0eXAiOi...-aoUFGexQw
+2026-05-14 19:32:47,668 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): graph.microsoft.com:443
+2026-05-14 19:32:48,026 - urllib3.connectionpool - DEBUG - https://graph.microsoft.com:443 "GET /v1.0/sites/detroitmemorialpark.sharepoint.com:/sites/DMP-Corporate HTTP/1.1" 200 None
+2026-05-14 19:32:48,035 - sharepoint_auth - INFO - Connection test successful: 200
+2026-05-14 19:32:48,036 - sharepoint_auth - INFO - Testing write permissions...
+2026-05-14 19:32:48,036 - sharepoint_auth - DEBUG - Testing write permissions...
+2026-05-14 19:32:48,036 - sharepoint_auth - DEBUG - Using token (preview): eyJ0eXAiOi...-aoUFGexQw
+2026-05-14 19:32:48,037 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): graph.microsoft.com:443
+2026-05-14 19:32:48,350 - urllib3.connectionpool - DEBUG - https://graph.microsoft.com:443 "GET /v1.0/sites/detroitmemorialpark.sharepoint.com:/sites/DMP-Corporate HTTP/1.1" 200 None
+2026-05-14 19:32:48,358 - sharepoint_auth - DEBUG - Using token (preview): eyJ0eXAiOi...-aoUFGexQw
+2026-05-14 19:32:48,359 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): graph.microsoft.com:443
+2026-05-14 19:32:48,842 - urllib3.connectionpool - DEBUG - https://graph.microsoft.com:443 "GET /v1.0/sites/detroitmemorialpark.sharepoint.com,a99a089a-f29d-4363-ae54-c13870879b14,a3a309c1-2772-4a6b-9017-363ebb0f3c50/drives HTTP/1.1" 200 None
+2026-05-14 19:32:48,851 - sharepoint_auth - DEBUG - Using token (preview): eyJ0eXAiOi...-aoUFGexQw
+2026-05-14 19:32:48,852 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): graph.microsoft.com:443
+2026-05-14 19:32:49,395 - urllib3.connectionpool - DEBUG - https://graph.microsoft.com:443 "POST /v1.0/sites/detroitmemorialpark.sharepoint.com,a99a089a-f29d-4363-ae54-c13870879b14,a3a309c1-2772-4a6b-9017-363ebb0f3c50/drives/b!mgiaqZ3yY0OuVME4cIebFMEJo6NyJ2tKkBc2PrsPPFDShA3dD3TWQ5lU0bPEQKms/root/children HTTP/1.1" 201 None
+2026-05-14 19:32:49,404 - sharepoint_auth - INFO - Write permission test successful: 201
+2026-05-14 19:32:49,404 - sharepoint_auth - DEBUG - Using token (preview): eyJ0eXAiOi...-aoUFGexQw
+2026-05-14 19:32:49,405 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): graph.microsoft.com:443
+2026-05-14 19:32:49,866 - urllib3.connectionpool - DEBUG - https://graph.microsoft.com:443 "DELETE /v1.0/sites/detroitmemorialpark.sharepoint.com,a99a089a-f29d-4363-ae54-c13870879b14,a3a309c1-2772-4a6b-9017-363ebb0f3c50/drives/b!mgiaqZ3yY0OuVME4cIebFMEJo6NyJ2tKkBc2PrsPPFDShA3dD3TWQ5lU0bPEQKms/items/014VRK552JH3LEITBVHZD3OVT2HRAWTCMD HTTP/1.1" 204 0
+2026-05-14 19:32:49,875 - sharepoint_auth - INFO - Test folder deleted successfully
+2026-05-14 19:32:49,876 - sharepoint_auth - INFO - Write permission test successful. Token has write permissions.
+2026-05-14 19:32:49,876 - sharepoint_mcp - INFO - Authentication successful. Token expiry: 2026-05-14 20:32:46.664506

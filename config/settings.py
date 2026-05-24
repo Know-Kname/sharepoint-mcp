@@ -1,10 +1,14 @@
 """Configuration settings for the SharePoint MCP Server."""
 
 import os
+from pathlib import Path
 from dotenv import load_dotenv
 
-# Load environment variables from .env file
-load_dotenv()
+# Load environment variables from .env file.
+# Use an absolute path anchored to the repo root so the .env is found
+# regardless of the process working directory — required when this server
+# is launched by an MCP host (e.g. Claude Code) from an arbitrary cwd.
+load_dotenv(Path(__file__).resolve().parent.parent / ".env")
 
 # Basic settings
 APP_NAME = "SharePoint MCP"
